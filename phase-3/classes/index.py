@@ -2,10 +2,10 @@
 # by Sakib Rasul
 
 
-# In Python, definitions and statements in a `.py` file can be shared with other files
-# when we treat that file as a **module**.
+# In Python, definitions and statements in a `.py` file (a.k.a. **module**)
+# can be shared with other modules by using the keywords `from`, `import`, and `as`.
 
-# In this example, we want to treat `modules/phone.py` as a module.
+# In this example, we want to import things from the file `modules/phone.py`.
 # There are various ways we can go about doing that:
 # 1. `import modules.phone` gives us access to things via `modules.phone.[thing]`
 # 2. `from modules import phone` gives us access to things via `phone.[thing]`
@@ -16,36 +16,40 @@
 # "Giving ourselves access to a thing" is more formally known as populating the **namespace**.
 # In other words, importing a module augments our namespace with additional definitions and statements.
 
-# When we start treating a file as a module, i.e. importing things from it into other files,
-# Python automatically starts managing a cache of that module, in a folder named `__pycache__`.
-# This is a completely automated process that speeds up the task of loading a module.
+# When we start importing modules from a folder, Python automatically starts managing a cache by
+# creating a new folder within that folder called `__pycache__`. This is a completely automated process
+# that speeds up the task of loading modules.
 
-# Import a class.
+# Import a class from another module.
 from modules.phone import Phone
 
-# Call `__init__`.
+# Create a new instance of the class `Phone`, i.e. call the `__init__` method in `Phone`.
 iPhone = Phone("Apple", "iPhone", "16 Pro", "Play Store")
 
-# Call `__repr__`.
+# Convert our instance into a string, i.e. call the `__repr__` method in `Phone`.
 print(iPhone)
 
-# Access a data attribute.
+# Access an instance data attribute.
 print(iPhone.store)
 
-# Modify a data attribute.
+# Modify an instance data attribute.
 iPhone.store = "App Store"
 
-# Access a data attribute.
+# Access an instance data attribute.
 print(iPhone.store)
 
-# Set a property.
-iPhone.remaining_battery = 11
+# We can modify instance properties just like we modify data attributes.
+# The difference is that modifying a property invokes a custom setter method,
+# e.g. `@remaining_battery.setter remaining_battery()` in `Phone`.
+iPhone.remaining_battery = 92
 
-# Get a property.
+# We can access instance properties just like we access data attributes.
+# The difference is that accessing a property invokes a custom getter method,
+# e.g. `@property remaining_battery()` in `Phone`.
 print(iPhone.remaining_battery)
 
 # Call an instance method.
 iPhone.download("FiLR")
 
-# Get a property.
+# Downloading an application successfully should result in a change in battery.
 print(iPhone.remaining_battery)
