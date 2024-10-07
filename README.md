@@ -123,3 +123,11 @@ _Using tables, rows, and columns to represent data._
 
 ## [Object-Relational Mappings](phase-3/orms)
 _Mapping classes, instances, and data attributes to tables, rows, and columns._
+
+## [CLIs](phase-3/clis)
+_Let people run and interact with your Python apps!_
+
+# [Phase 4: Flask](phase-4)
+
+## [Fundamentals](phase-4/fundamentals)
+_An introduction to Flask, SQLAlchemy, and Alembic._
