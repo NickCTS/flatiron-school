@@ -10,3 +10,13 @@
 # 6. Create and populate a new database.
 # 7. Write a route that interacts with the database.
 # 8. Test the route.
+
+from flask import Flask, jsonify
+from flask_sqlalchemy import SqlAlchemy
+from flask_migrate import Migrate
+
+app = Flask(__name__)
+
+@app.get("/")
+def index():
+    return jsonify({"message": "Hello!"})
